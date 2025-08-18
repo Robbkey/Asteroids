@@ -2,6 +2,14 @@ import pygame
 from player import Player
 from constants import *
 def main():
+    # adding groups
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+
+    # filling groups
+    Player.containers = (updatable, drawable)
+
+
     # i für unser while loop
     i = 0
     # initiate pygame
@@ -12,7 +20,7 @@ def main():
     clock = pygame.time.Clock()
     # ouer delta time
     dt = 0
-
+    
 
     print("Starting Asteroids!")
     print(f"Screen width: {SCREEN_WIDTH}")
