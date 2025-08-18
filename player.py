@@ -1,5 +1,4 @@
 # importing need variabel and classes
-from main import dt
 from circleshape import *
 from constants import PLAYER_RADIUS, PLAYER_TURN_SPEED
 
@@ -22,8 +21,8 @@ class Player(CircleShape):
         pygame.draw.polygon(screen, "white", self.triangle(), 2)
 
 
-    def rotate(dt):
-        rotation = PLAYER_TURN_SPEED * dt
+    def rotate(self, dt):
+        self.rotation = self.rotation + PLAYER_TURN_SPEED * dt
 
 
     def update(self, dt):

@@ -30,6 +30,8 @@ def main():
                 return
         # fill the screen objekt we created black
         screen.fill((0, 0, 0))
+        # update player position
+        player.update(dt)
         # draw the player on the screen
         player.draw(screen)
         # refresh the display
