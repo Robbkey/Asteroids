@@ -12,8 +12,8 @@ def main():
 
     # filling groups
     Player.containers = (updatable, drawable)
-    Asteroid.containers = (asteroids, updatable ,drawable)
-    AsteroidField.containers = (updatable)
+    Asteroid.containers = (asteroids, updatable, drawable)
+    AsteroidField.containers = (updatable, )
 
 
     # i für unser while loop
@@ -56,6 +56,11 @@ def main():
 
         # update player position
         updatable.update(dt)
+
+        for astr in asteroids:
+            col = astr.collision(player)
+            if col == True:
+                raise SystemExit("Game over!")
         # DEBUGGING
         #print(f"Asteroids in group: {len(asteroids)}, Drawable objects: {len(drawable)}")
 
