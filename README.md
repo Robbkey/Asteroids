@@ -1,6 +1,7 @@
 the following code was made available by boot.dev, because it was not dircetly part of the learning goal:
 
 main.py:
+
     if __name__ == "__main__":
         main()
 
@@ -11,6 +12,7 @@ main.py:
         return
 
 constants.py:
+
     SCREEN_WIDTH = 1280
     SCREEN_HEIGHT = 720
 
@@ -20,6 +22,7 @@ constants.py:
     ASTEROID_MAX_RADIUS = ASTEROID_MIN_RADIUS * ASTEROID_KINDS
 
 circleshape.py
+
     import pygame
 
     # Base class for game objects
@@ -44,6 +47,7 @@ circleshape.py
             pass
 
 player.py
+
     # in the player class
     def triangle(self):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
@@ -65,6 +69,7 @@ player.py
     self.position += forward * PLAYER_SPEED * dt
 
 asteroidfield.py
+
     import pygame
     import random
     from asteroid import Asteroid
