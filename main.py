@@ -21,16 +21,13 @@ def main():
 
     # i für unser while loop
     i = 0
-    # initiate pygame
+    # initiat pygame
     pygame.init()
-
+    # initiat the AsteroidField
     asteroidfield = AsteroidField()
-    # DEBUGGING
-    #print(f"AsteroidField created, containers: {AsteroidField.containers}")
-    #print(f"Asteroids group size: {len(asteroids)}")
-
     # initiating our player at a posion
     player = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
+
     # saving a pygame clock objekt
     clock = pygame.time.Clock()
     # ouer delta time
@@ -60,21 +57,27 @@ def main():
         # update player position
         updatable.update(dt)
 
+        # iterates the asteroids 
         for astr in asteroids:
+            # looks for player collision with asteroids
             col = astr.collision(player)
+            # if ture exits the game
             if col == True:
                 raise SystemExit("Game over!")
 
+        # iterates the asteroids
         for astr in asteroids:
+            # iterates the shots
             for sht in shots:
+                # looks for collision between shots and asteroids
                 col = astr.collision(sht)
+                # kills shots and splits asteroids
                 if col == True:
                     sht.kill()
                     astr.split()
-        # DEBUGGING
-        #print(f"Asteroids in group: {len(asteroids)}, Drawable objects: {len(drawable)}")
 
-        # draw the player on the screen
+
+        # draw the drawable objects on the screen
         for obj in drawable:
             obj.draw(screen)
 

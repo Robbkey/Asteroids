@@ -55,17 +55,23 @@ class Player(CircleShape):
 
 
     def move(self, dt):
+        # moves the player
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
         self.position += forward * PLAYER_SPEED * dt
 
 
     def shoot(self, dt):
+        # shoots if cooldown is over
         if self.timer <= 0:
+            # creats shot at player position
             shot = Shot(self.position.x, self.position.y)
+            # gives shot velocity
             shot.velocity = pygame.Vector2(0, 1).rotate(self.rotation) * PLAYER_SHOOT_SPEED
+            # sets timer for cooldown
             self.timer = PLAYER_SHOOT_COOLDOWN
 
         else:
+            # counts down the cooldown
             self.timer = self.timer - dt
 
             
