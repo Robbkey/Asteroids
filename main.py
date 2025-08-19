@@ -70,7 +70,7 @@ def main():
                 col = astr.collision(sht)
                 if col == True:
                     sht.kill()
-                    astr.kill()
+                    astr.split()
         # DEBUGGING
         #print(f"Asteroids in group: {len(asteroids)}, Drawable objects: {len(drawable)}")
 
