@@ -64,6 +64,13 @@ def main():
             col = astr.collision(player)
             if col == True:
                 raise SystemExit("Game over!")
+
+        for astr in asteroids:
+            for sht in shots:
+                col = astr.collision(sht)
+                if col == True:
+                    sht.kill()
+                    astr.kill()
         # DEBUGGING
         #print(f"Asteroids in group: {len(asteroids)}, Drawable objects: {len(drawable)}")
 
